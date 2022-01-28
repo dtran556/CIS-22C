@@ -58,13 +58,7 @@ public class Queue<T extends Comparable<T>> implements Q<T> {
 		}
 		stack1 = new Stack<T>(original.stack1);
 		stack2 = new Stack<T>(original.stack2);
-		// while(!original.stack1.isEmpty())
-		// {
-		// stack2.push(original.stack1.peek());
-		// stack1.push(original.stack2.peek());
-		// original.stack1.pop();
-		// original.stack2.pop();
-		// }
+
 	}
 
 	// add methods here
@@ -114,7 +108,6 @@ public class Queue<T extends Comparable<T>> implements Q<T> {
 	public void enqueue(T data) {
 		stack2.push(data);
 		Stack<T> temp = new Stack<T>();
-		// for(int i = 0; i < stack1.getSize() - 1; i++)
 		while (!stack1.isEmpty()) {
 			temp.push(stack1.peek());
 			stack1.pop();
@@ -127,7 +120,6 @@ public class Queue<T extends Comparable<T>> implements Q<T> {
 			temp.pop();
 
 		}
-		// stack1.toString();
 
 	}
 
@@ -145,10 +137,7 @@ public class Queue<T extends Comparable<T>> implements Q<T> {
 		if (stack1.isEmpty()) {
 			throw new NoSuchElementException("dequeue(): Queue is empty. " + "No element to remove");
 		} else {
-			// System.out.println(stack2.toString());
-			// stack 1 is empty error pre condition
-			// else set the top of stack 1 to a temp and then pop the first element from
-			// stack 1
+
 			Stack<T> temp = new Stack<T>();
 			stack1.pop();
 			while (!stack2.isEmpty()) {
@@ -204,6 +193,12 @@ public class Queue<T extends Comparable<T>> implements Q<T> {
 
 		return false;
 	}
+
+	/**
+	 * Reverses the queue
+	 * 
+	 * @return returns the queue reversed
+	 */
 
 	public String reverseQueue() {
 		return stack2.toString();
