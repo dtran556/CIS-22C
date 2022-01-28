@@ -114,13 +114,13 @@ public class Queue<T> implements Q<T> {
 	public void enqueue(T data) {
 
 		if (curr_size == queue.length) {
-			// resize
+
 			resize();
 			queue[curr_size] = data;
 			curr_size++;
 
 		}
-		
+
 		else {
 			queue[curr_size] = data;
 			curr_size++;
@@ -140,7 +140,7 @@ public class Queue<T> implements Q<T> {
 			throw new NoSuchElementException("dequeue(): Queue is empty. " + "No element to remove");
 		} else {
 			for (int i = 0; i < curr_size - 1; i++) {
-				// queue[i+1] = queue[i];
+
 				queue[i] = queue[i + 1];
 			}
 		}
@@ -160,7 +160,6 @@ public class Queue<T> implements Q<T> {
 		for (int i = 0; i < curr_size; i++) {
 			result.append(queue[i] + " ");
 
-			// result += queue[i] + " ";
 		}
 		return result.toString() + "\n";
 	}
@@ -183,13 +182,12 @@ public class Queue<T> implements Q<T> {
 		} else {
 			Queue<T> n = (Queue<T>) o;
 			if (this.curr_size != n.curr_size) {
-				// System.out.println(curr_size + n.curr_size);
+
 				return false;
-			} else // error is in this else
-			{
+			} else {
 				for (int i = 0; i < curr_size - 1; i++) {
 					if (!this.queue[i].equals(n.queue[i])) {
-						// System.out.println(this.queue[i] + " "+ n.queue[i]);
+
 						return false;
 					}
 				}
@@ -197,18 +195,19 @@ public class Queue<T> implements Q<T> {
 			return true;
 		}
 	}
+
 	/**
-	 * Recursively (no loops) creates a String where the array is in reverse order by
-	 * calling the private helper method
+	 * Recursively (no loops) creates a String where the array is in reverse order
+	 * by calling the private helper method
 	 */
 
 	public String reverseQueue() {
 		if (curr_size == 0) {
-			return "\n"; // ask if doing new line at the if statement is fine
+			return "\n";
 		} else {
 			return reverseQueue(curr_size - 1) + "\n";
 		}
-		// return reverseQueue(curr_size - 1) + "\n";
+
 	}
 
 	/** PRIVATE HELPER METHODS */
@@ -219,7 +218,7 @@ public class Queue<T> implements Q<T> {
 	 * @param index the current index
 	 * @return a String of this Queue in reverse order
 	 */
-	private String reverseQueue(int index) { // error here is that it is expecting <C B A\n> but is getting <C B A
+	private String reverseQueue(int index) {
 		if (index == 0) {
 			return queue[0].toString() + " ";
 		} else {
