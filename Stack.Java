@@ -316,6 +316,7 @@ public class Stack<T extends Comparable<T>> {
 	 */
 	private int binarySearch(int low, int high, T value) {
 		Node temp = top;
+		
 		if (high < low) {
 			return -1;
 		}
