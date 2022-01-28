@@ -221,8 +221,20 @@ class StackTest {
 
 	@Test
 	void testBinarySearch() {
-		Stack<String> List1 = new Stack<>(new String[] { "1", "2", "3" });
-		assertTrue(List1.binarySearch("1"));
+		//test 1
+		Stack<String> List1 = new Stack<>(new String[] { "1", "2", "3","4","5","6" });
+		Stack<String> List2 = new Stack<>(new String[] { "4", "2", "10" });
+		assertThrows(IllegalStateException.class, () -> { 
+			List2.binarySearch("2");
+			});
+		assertTrue(List1.binarySearch("4"));
+		//test 2
+		List1.push("7");
+		assertTrue(List1.binarySearch("7"));
+		//test 3
+		List1.pop();
+		assertFalse(List1.binarySearch("7"));
+		
 	}
 
 }
