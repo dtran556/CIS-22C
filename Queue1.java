@@ -71,7 +71,6 @@ public class Queue<T> implements Q<T> {
 			while (temp != null) {
 				enqueue(temp.data);
 				temp = temp.next;
-				// size++;
 			}
 		}
 	}
